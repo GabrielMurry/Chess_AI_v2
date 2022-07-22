@@ -1,0 +1,19 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+#canvas-holder {
+    display: flex;
+    justify-content: center;
+}
+.container-pieces img {
+    display: flex;
+    max-width: 100px;
+    flex-direction: row;
+}
+
+#pawn {
+    display: flex;
+    max-width: 100px;
+    display: none;
+}
