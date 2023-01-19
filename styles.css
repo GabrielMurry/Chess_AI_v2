@@ -1,19 +1,33 @@
 h1 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 #canvas-holder {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .container-pieces img {
-    display: flex;
-    max-width: 100px;
-    flex-direction: row;
+  display: flex;
+  max-width: 100px;
+  flex-direction: row;
 }
 
 #pawn {
-    display: flex;
-    max-width: 100px;
-    display: none;
+  display: flex;
+  max-width: 100px;
+  display: none;
+}
+
+.title {
+  position: absolute;
+}
+
+.depth {
+  position: absolute;
+  margin-top: 4rem;
+}
+
+.ahead {
+  position: absolute;
+  margin-top: 6rem;
 }

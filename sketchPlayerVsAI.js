@@ -456,7 +456,7 @@ function bestMove() {
           isQuietSearchingMin = false;
           let score = minimax(
             board,
-            6,
+            6, // !!! depth of ai !!!!
             false,
             whitePieceStack,
             blackPieceStack,
@@ -506,20 +506,20 @@ function bestMove() {
       }
     }
   }
-  createP(count);
+  // createP(count);
   count = 0;
   // IFFY: !!!!!!!! should we clear memory each time? or two moves from now? ancienct variables?
   transpositionMap.clear();
-  createP(
-    "bestPiece: " +
-      bestPiece +
-      " " +
-      bestNewMoveY +
-      " " +
-      bestNewMoveX +
-      " score: " +
-      bestScore
-  );
+  // createP(
+  //   "bestPiece: " +
+  //     bestPiece +
+  //     " " +
+  //     bestNewMoveY +
+  //     " " +
+  //     bestNewMoveX +
+  //     " score: " +
+  //     bestScore
+  // );
   setAIMove(
     bestOldMoveY,
     bestOldMoveX,
@@ -863,7 +863,7 @@ function setAIMove(
     for (let j = 0; j < 16; j++) {
       if (whitePieceArray[j].isAlive) {
         if (whiteIdentityArray[j] == board[bestNewMoveY][bestNewMoveX]) {
-          createP(j + " is dead");
+          // createP(j + " is dead");
           whitePieceArray[j].isAlive = false;
           whitePieceArray[j].attackBoard = temp.resetTypeBoards(
             whitePieceArray[j].attackBoard
@@ -1153,8 +1153,8 @@ class Piece {
     let kingY = blackPieceArray[0].y / 100;
     for (let i = 0; i < 16; i++) {
       if (whitePieceArray[i].attackBoard[kingY][kingX] != "") {
-        createP(whiteIdentityArray[i]);
-        createP("black king is in check");
+        // createP(whiteIdentityArray[i]);
+        // createP("black king is in check");
         isBlackKingChecked = true;
         return true;
       }
@@ -1248,11 +1248,11 @@ class Piece {
     this.changeAttackBoards();
     for (let i = 0; i < 8; i++) {
       if (safeArray[i]) {
-        createP("there is an escape square for black king");
+        // createP("there is an escape square for black king");
         return true;
       }
     }
-    createP("there is no escape square for black king");
+    // createP("there is no escape square for black king");
     return false;
   }
   canBlackPieceBlock() {
@@ -1275,7 +1275,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1287,10 +1287,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1306,7 +1306,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1318,10 +1318,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1338,7 +1338,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1350,10 +1350,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1369,7 +1369,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1381,10 +1381,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1401,7 +1401,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1413,10 +1413,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1432,7 +1432,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1444,10 +1444,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1464,7 +1464,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1476,10 +1476,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1495,7 +1495,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (blackPieceArray[i].isAlive) {
             if (blackPieceArray[i].attackBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1507,10 +1507,10 @@ class Piece {
               y == attackerY &&
               blackPieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             } else if (blackPieceArray[i].moveBoard[y][x] != "") {
-              createP("black piece can block attacker path");
+              // createP("black piece can block attacker path");
               return true;
             }
           }
@@ -1526,8 +1526,8 @@ class Piece {
     let kingY = whitePieceArray[0].y / 100;
     for (let i = 0; i < 16; i++) {
       if (blackPieceArray[i].attackBoard[kingY][kingX] != "") {
-        createP(blackIdentityArray[i]);
-        createP("white king is in check");
+        // createP(blackIdentityArray[i]);
+        // createP("white king is in check");
         isWhiteKingChecked = true;
         return true;
       }
@@ -1621,11 +1621,11 @@ class Piece {
     this.changeAttackBoards();
     for (let i = 0; i < 8; i++) {
       if (safeArray[i]) {
-        createP("there is an escape square for white king");
+        // createP("there is an escape square for white king");
         return true;
       }
     }
-    createP("there is no escape square for white king");
+    // createP("there is no escape square for white king");
     return false;
   }
   canWhitePieceBlock() {
@@ -1648,7 +1648,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1660,10 +1660,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1679,7 +1679,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1691,10 +1691,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1711,7 +1711,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1723,10 +1723,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1742,7 +1742,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1754,10 +1754,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1774,7 +1774,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1786,10 +1786,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1805,7 +1805,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1817,10 +1817,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1837,7 +1837,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1849,10 +1849,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1868,7 +1868,7 @@ class Piece {
         for (let i = 1; i < 8; i++) {
           if (whitePieceArray[i].isAlive) {
             if (whitePieceArray[i].attackBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
@@ -1880,10 +1880,10 @@ class Piece {
               y == attackerY &&
               whitePieceArray[i].attackBoard[y][x] != ""
             ) {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             } else if (whitePieceArray[i].moveBoard[y][x] != "") {
-              createP("white piece can block attacker path");
+              // createP("white piece can block attacker path");
               return true;
             }
           }
